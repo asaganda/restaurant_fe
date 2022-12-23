@@ -59,7 +59,6 @@ const App = () => {
       <main id="main">
       {page === 0 ? <Home restaurants={restaurants} handleDelete={handleDelete}/> : <></> }
       {page === 1 ? <Add handleCreate={handleCreate} setPage={setPage}/> : <></> }
-      
 
       {/* <div className="restaurants text-center">
         {restaurants.map((restaurant) => {
