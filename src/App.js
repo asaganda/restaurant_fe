@@ -32,11 +32,11 @@ const App = () => {
   }
 
   const handleDelete = (data) => {
-    axios.delete('https://restaurant-api.herokuapp.com/api/restaurants' + data.id)
+    axios.delete('https://restaurant-api.herokuapp.com/api/restaurants/' + data.id)
     .then((res) => {
-      console.log(res.data)
       getRestaurants()
     })
+    .catch((err) => console.log(err))
   }
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const App = () => {
   <div className="restaurants text-center">
  {restaurants.map((restaurants) => {
    return (
-     <Restaurant restaurants={restaurants}/>
+     <Restaurant restaurants={restaurants} handleDelete={handleDelete}/>
    )
  })}
 </div>

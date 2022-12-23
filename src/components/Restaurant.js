@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 
 const Restaurant = (props) => {
-  
+    
+    const deleteRestaurant = (restaurant) => {
+      props.handleDelete(restaurant)
+    }
 
     return (
       <>
@@ -13,6 +16,7 @@ const Restaurant = (props) => {
         <p class="card-text"> Cuisine: {props.restaurants.cuisine}</p>
         <p class="card-text"> Address: {props.restaurants.address}</p>
         <p class="card-text"> Phone Number: {props.restaurants.phone}</p>
+        <button onClick={() => deleteRestaurant(props.restaurants)}>Delete</button>
       </div>
   </div>
       </>
