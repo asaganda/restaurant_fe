@@ -10,6 +10,8 @@ const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
 
+  // API ROUTES
+  // Create new restaurant
   const handleCreate = (newRest) => {
     axios.post("https://restaurant-api.herokuapp.com/api/restaurants", newRest)
     .then((res) => {
@@ -18,6 +20,7 @@ const App = () => {
     })
   }
 
+  // Fetching all restaurants
   const getRestaurants = () => {
    axios
      .get('https://restaurant-api.herokuapp.com/api/restaurants')
@@ -26,6 +29,14 @@ const App = () => {
        (err) => console.error(err)
      )
      .catch((error) => console.error(error))
+  }
+
+  const handleDelete = (data) => {
+    axios.delete('https://restaurant-api.herokuapp.com/api/restaurants' + data.id)
+    .then((res) => {
+      console.log(res.data)
+      getRestaurants()
+    })
   }
 
   useEffect(() => {
