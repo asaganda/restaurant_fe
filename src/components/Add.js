@@ -17,6 +17,7 @@ const Add = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         props.handleCreate(restaurant)
+        props.setPage(0)
     }
 
     return (

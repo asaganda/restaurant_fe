@@ -5,7 +5,7 @@ import Nav from './components/Nav'
 import './App.css'
 import Add from './components/Add'
 import Edit from './components/Edit'
-
+import Home from './components/Home'
 
 const App = () => {
   // States
@@ -53,29 +53,23 @@ const App = () => {
 
   return (
     <>
-      <Nav setPage={setPage}/>
-      {page === 0 ?
-        <div className="restaurants text-center">
-          {restaurants.map((restaurant) => {
-            return (
-              <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={handleDelete}/>
-            )
-          })}
-        </div>
-        :
-        <></>
-      }
-      {page === 1 ? <Add handleCreate={handleCreate}/> : <></> }
-      
+      <header>
+        <Nav setPage={setPage}/>
+      </header>
+      <main id="main">
+      {page === 0 ? <Home restaurants={restaurants} handleDelete={handleDelete}/> : <></> }
+      {page === 1 ? <Add handleCreate={handleCreate} setPage={setPage}/> : <></> }
 
-
-      <div className="restaurants text-center">
+      {/* <div className="restaurants text-center">
         {restaurants.map((restaurant) => {
           return (
             <>
               <Edit handleUpdate={handleUpdate} id={restaurant.id} restaurant={restaurant}/>
-              <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={handleDelete}/>
             </>
+          )})
+        }
+      </div> */}
+      </main>
     </>
   )
 }
