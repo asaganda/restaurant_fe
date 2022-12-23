@@ -16,6 +16,7 @@ const Restaurant = (props) => {
         <p className="card-text"> Cuisine: {props.restaurant.cuisine}</p>
         <p className="card-text"> Address: {props.restaurant.address}</p>
         <p className="card-text"> Phone Number: {props.restaurant.phone}</p>
+        <button onClick={() => deleteRestaurant(props.restaurant)}></button>
       </div>
   </div>
       </>
