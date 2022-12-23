@@ -22,13 +22,10 @@ const App = () => {
 
   // Fetching all restaurants
   const getRestaurants = () => {
-   axios
-     .get('https://restaurant-api.herokuapp.com/api/restaurants')
-     .then(
-       (response) => setRestaurants(response.data),
-       (err) => console.error(err)
-     )
-     .catch((error) => console.error(error))
+  axios.get('https://restaurant-api.herokuapp.com/api/restaurants')
+  .then((response) => setRestaurants(response.data),
+    (err) => console.error(err))
+  .catch((error) => console.error(error))
   }
 
   const handleDelete = (data) => {
@@ -40,20 +37,20 @@ const App = () => {
   }
 
   useEffect(() => {
-   getRestaurants()
+  getRestaurants()
   }, [])
 
   return (
     <>
-    <Nav/>
+  <Nav/>
   <button>Add Restaurant</button>
   <Add handleCreate={handleCreate}/>
   <div className="restaurants text-center">
- {restaurants.map((restaurants) => {
-   return (
-     <Restaurant restaurants={restaurants} handleDelete={handleDelete}/>
-   )
- })}
+{restaurants.map((restaurant) => {
+  return (
+    <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={handleDelete}/>
+  )
+})}
 </div>
 </>
   );
