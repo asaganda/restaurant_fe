@@ -5,14 +5,14 @@ const Restaurant = (props) => {
 
     return (
       <>
-      <div class="card" >
-        <img src={props.restaurants.image} class="card-img-top" alt="..."/>
-        <div class="card-body">
-        <h5 class="card-title">Name: {props.restaurants.name}</h5>
-        <p class="card-text"> Price: {props.restaurants.price}</p>
-        <p class="card-text"> Cuisine: {props.restaurants.cuisine}</p>
-        <p class="card-text"> Address: {props.restaurants.address}</p>
-        <p class="card-text"> Phone Number: {props.restaurants.phone}</p>
+      <div className="card" >
+        <img src={props.restaurant.image} className="card-img-top" alt="..."/>
+        <div className="card-body">
+        <h5 className="card-title">Name: {props.restaurant.name}</h5>
+        <p className="card-text"> Price: {props.restaurant.price}</p>
+        <p className="card-text"> Cuisine: {props.restaurant.cuisine}</p>
+        <p className="card-text"> Address: {props.restaurant.address}</p>
+        <p className="card-text"> Phone Number: {props.restaurant.phone}</p>
       </div>
   </div>
       </>
