@@ -2,8 +2,9 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Restaurant from './components/Restaurant'
 import Nav from './components/Nav'
-import './App.css';
-import Add from './components/Add';
+import './App.css'
+import Add from './components/Add'
+import Edit from './components/Edit'
 
 
 const App = () => {
@@ -38,6 +39,14 @@ const App = () => {
     .catch((err) => console.log(err))
   }
 
+  const handleUpdate = (editRestaurant) => {
+    console.log(editRestaurant)
+    axios.put('https://restaurant-api.herokuapp.com/api/restaurants/' + editRestaurant.id, editRestaurant)
+      .then((response) => {
+        getRestaurants()
+      })
+  }
+
   useEffect(() => {
   getRestaurants()
   }, [])
@@ -58,6 +67,15 @@ const App = () => {
       }
       {page === 1 ? <Add handleCreate={handleCreate}/> : <></> }
       
+
+
+      <div className="restaurants text-center">
+        {restaurants.map((restaurant) => {
+          return (
+            <>
+              <Edit handleUpdate={handleUpdate} id={restaurant.id} restaurant={restaurant}/>
+              <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={handleDelete}/>
+            </>
     </>
   )
 }
