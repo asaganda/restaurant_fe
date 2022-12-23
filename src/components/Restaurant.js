@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 
 const Restaurant = (props) => {
-  
+    
+    const deleteRestaurant = (restaurant) => {
+      props.handleDelete(restaurant)
+    }
 
     return (
       <>

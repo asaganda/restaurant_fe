@@ -30,11 +30,11 @@ const App = () => {
   }
 
   const handleDelete = (data) => {
-    axios.delete('https://restaurant-api.herokuapp.com/api/restaurants' + data.id)
+    axios.delete('https://restaurant-api.herokuapp.com/api/restaurants/' + data.id)
     .then((res) => {
-      console.log(res.data)
       getRestaurants()
     })
+    .catch((err) => console.log(err))
   }
 
   const handleUpdate = (editRestaurant) => {
@@ -57,10 +57,14 @@ const App = () => {
   <div className="restaurants text-center">
 {restaurants.map((restaurant) => {
   return (
+
     <>
     <Restaurant restaurant={restaurant} key={restaurant.id}/>
     <Edit handleUpdate={handleUpdate} id={restaurant.id} restaurant={restaurant}/>
+    <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={handleDelete}/>
     </>
+    
+
   )
 })}
 </div>
