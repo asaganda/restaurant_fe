@@ -15,7 +15,7 @@ const Restaurant = (props) => {
         <p className="card-text"> Price: {props.restaurant.price}</p>
         <p className="card-text"> Cuisine: {props.restaurant.cuisine}</p>
         <p className="card-text"> Address: {props.restaurant.address}</p>
-        <p className="card-text"> Phone Number: {props.restaurant.phone}</p>
+        <p className="card-text"> Phone Number: {props.restaurant.number}</p>
       </div>
   </div>
       </>

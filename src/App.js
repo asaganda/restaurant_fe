@@ -59,8 +59,7 @@ const App = () => {
   return (
 
     <>
-    <Restaurant restaurant={restaurant} key={restaurant.id}/>
-    <Edit handleUpdate={handleUpdate} id={restaurant.id} restaurant={restaurant}/>
+    <Edit handleUpdate={handleUpdate} restaurant={restaurant}/>
     <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={handleDelete}/>
     </>
     

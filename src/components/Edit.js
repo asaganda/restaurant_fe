@@ -34,7 +34,7 @@ return (
                     <input type="string" name="cuisine" value={restaurant.cuisine} onChange={handleChange}/>
                     <br />
                     <label htmlFor="number">Phone Num: </label>
-                    <input type="number" name="number" value={restaurant.number} onChange={handleChange}/>
+                    <input type="text" name="number" value={restaurant.number} onChange={handleChange}/>
                     <input type="submit"/>
                 </form>
             </details>
