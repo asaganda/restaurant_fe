@@ -5,11 +5,12 @@ import Nav from './components/Nav'
 import './App.css'
 import Add from './components/Add'
 import Edit from './components/Edit'
-
+import Home from './components/Home'
 
 const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
+  const [page, setPage] = useState(0)
 
   // API ROUTES
   // Create new restaurant
@@ -29,6 +30,7 @@ const App = () => {
   .catch((error) => console.error(error))
   }
 
+  // Delete a restaurant
   const handleDelete = (data) => {
     axios.delete('https://restaurant-api.herokuapp.com/api/restaurants/' + data.id)
     .then((res) => {
@@ -50,25 +52,26 @@ const App = () => {
   }, [])
 
   return (
-  <>
-  <Nav/>
-  <button>Add Restaurant</button>
-  <Add handleCreate={handleCreate}/>
-  <div className="restaurants text-center">
-{restaurants.map((restaurant) => {
-  return (
-
     <>
-    <Edit handleUpdate={handleUpdate} restaurant={restaurant}/>
-    <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={handleDelete}/>
-    </>
-    
+      <header>
+        <Nav setPage={setPage}/>
+      </header>
+      <main id="main">
+      {page === 0 ? <Home restaurants={restaurants} handleDelete={handleDelete}/> : <></> }
+      {page === 1 ? <Add handleCreate={handleCreate} setPage={setPage}/> : <></> }
 
+      {/* <div className="restaurants text-center">
+        {restaurants.map((restaurant) => {
+          return (
+            <>
+              <Edit handleUpdate={handleUpdate} id={restaurant.id} restaurant={restaurant}/>
+            </>
+          )})
+        }
+      </div> */}
+      </main>
+    </>
   )
-})}
-</div>
-</>
-  );
 }
 
 export default App;

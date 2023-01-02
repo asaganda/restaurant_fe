@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 
 const Nav = (props) => {
-  
+    const showPage = (num) => {
+      props.setPage(num)
+    }
 
     return (
       <>
@@ -19,7 +21,10 @@ const Nav = (props) => {
                         <div className="offcanvas-body">
                             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li className="nav-item">
-                                <button>Add</button>
+                                    <button onClick={() => showPage(0)}>Home</button>
+                                </li>
+                                <li className="nav-item">
+                                    <button onClick={() => showPage(1)}>Add Restaurant</button>
                                 </li>
                             </ul>
                         </div>
