@@ -1,4 +1,5 @@
 import Restaurant from "./Restaurant"
+import EachRestaurant from "./EachRestaurant"
 
 const Home = (props) => {
     return(
@@ -10,6 +11,7 @@ const Home = (props) => {
                     )
                 })}
             </div>
+            {/* <EachRestaurant restaurants={props.restaurants}/> */}
         </>
     )
 }
