@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import Restaurant from "./Restaurant"
+import Edit from './Edit'
 
 const EachRestaurant = (props) => {
     const [showRest, setShowRest] = useState(true)
@@ -7,7 +8,7 @@ const EachRestaurant = (props) => {
     const deleteRestaurant = (restaurant) => {
         props.handleDelete(restaurant)
     }
-    
+
     const backToList = () => {
         props.setRestPage(0)
     }
@@ -26,24 +27,18 @@ const EachRestaurant = (props) => {
                     <p className="card-text"> Price: {props.restaurant.price}</p>
                     <p className="card-text"> Cuisine: {props.restaurant.cuisine}</p>
                     <p className="card-text"> Address: {props.restaurant.address}</p>
-                    <p className="card-text"> Phone Number: {props.restaurant.phone}</p>
+                    <p className="card-text"> Phone Number: {props.restaurant.number}</p>
                     <button onClick={() => deleteRestaurant(props.restaurant)}>Delete</button>
-                    {/* <button onClick={}>Edit</button> */}
+                    <button onClick={() => {setShowRest(false)}}>Edit</button>
                 </div>
             </div>
             
-            <button onClick={() => {setShowRest(false)}}>Edit {props.restaurant.id}</button>
         </>
         :
-        <button onClick={() => {setShowRest(true)}}>Show {props.restaurant.id}</button>
+        <>
+            <Edit restaurant={props.restaurant} handleUpdate={props.handleUpdate} setShowRest={setShowRest}/>
+        </>
         }
-
-        {/* {props.restaurants.map((restaurant) => {
-            return (
-            <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={props.handleDelete}/>
-            )
-        })} */}
-
         
         </>
     )

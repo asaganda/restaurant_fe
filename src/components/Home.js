@@ -8,9 +8,9 @@ const Home = (props) => {
     const deleteRestaurant = (restaurant) => {
         props.handleDelete(restaurant)
     }
-    
+
     const showRest = (id) => {
-      setRestPage(id)
+        setRestPage(id)
     }
 
     return(
@@ -40,7 +40,7 @@ const Home = (props) => {
             props.restaurants.map((restaurant) => {
                 return(
                     <div key={restaurant.id}>
-                        {restPage === restaurant.id ? <EachRestaurant restaurant={restaurant} setRestPage={setRestPage}/> : <></> }
+                        {restPage === restaurant.id ? <EachRestaurant restaurant={restaurant} setRestPage={setRestPage} handleUpdate={props.handleUpdate}/> : <></> }
                     </div>
                 )
             })
