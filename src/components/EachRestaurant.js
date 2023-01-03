@@ -1,9 +1,21 @@
+import {useState} from 'react'
 import Restaurant from "./Restaurant"
 
 const EachRestaurant = (props) => {
+    const [showRest, setShowRest] = useState(true)
+
+    const backToList = () => {
+        props.setRestPage(0)
+    }
     return(
         <>
-        <h1>Full Restaurant detail</h1>
+        <button onClick={() => backToList()}>Back to all restaurants</button>
+        <h1>{props.restaurant.id}</h1>
+        {showRest ? 
+        <button onClick={() => {setShowRest(false)}}>Edit {props.restaurant.id}</button>
+        : 
+        <button onClick={() => {setShowRest(true)}}>Show {props.restaurant.id}</button>
+        }
 
         {/* {props.restaurants.map((restaurant) => {
             return (
@@ -11,7 +23,7 @@ const EachRestaurant = (props) => {
             )
         })} */}
 
-        {props.restaurants.map((restaurant) => {
+        {/* {props.restaurants.map((restaurant) => {
             return (
                 <div className="card">
                     <img src={restaurant.image} className="card-img-top" alt="restaurant"/>
@@ -21,12 +33,12 @@ const EachRestaurant = (props) => {
                         <p className="card-text"> Cuisine: {restaurant.cuisine}</p>
                         <p className="card-text"> Address: {restaurant.address}</p>
                         <p className="card-text"> Phone Number: {restaurant.phone}</p>
-                        {/* <button onClick={() => deleteRestaurant(restaurant)}>Delete</button> */}
-                        {/* <button onClick={}>Edit</button> */}
+                        <button onClick={() => deleteRestaurant(restaurant)}>Delete</button>
+                        <button onClick={}>Edit</button>
                     </div>
                 </div>
             )
-        })}
+        })} */}
         </>
     )
 }
