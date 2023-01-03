@@ -8,6 +8,7 @@ const Home = (props) => {
     const deleteRestaurant = (restaurant) => {
         props.handleDelete(restaurant)
     }
+    
     const showRest = (id) => {
       setRestPage(id)
     }
