@@ -7,7 +7,7 @@ const Add = (props) => {
         image: "",
         price: "",
         cuisine: "",
-        number: 0
+        number: ""
     })
 
     const handleChange = (event) => {
@@ -40,7 +40,7 @@ const Add = (props) => {
                 <input type="string" name="cuisine" onChange={handleChange}/>
                 <br />
                 <label htmlFor="number">Phone Num: </label>
-                <input type="number" name="number" onChange={handleChange}/>
+                <input type="text" name="number" onChange={handleChange}/>
                 <input type="submit"/>
             </form>
         </>
