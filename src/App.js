@@ -62,7 +62,7 @@ const App = () => {
       {page === 1 ? <Add handleCreate={handleCreate} setPage={setPage}/> : <></> }
       
 
-      <div className="restaurants text-center">
+      {/* <div className="restaurants text-center">
         {restaurants.map((restaurant) => {
           return (
             <>
@@ -70,7 +70,7 @@ const App = () => {
             </>
           )})
         }
-      </div>
+      </div> */}
       </main>
     </>
   )
