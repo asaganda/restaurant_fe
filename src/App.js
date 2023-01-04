@@ -11,6 +11,7 @@ const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
   const [page, setPage] = useState(0)
+  
 
   // API ROUTES
   // Create new restaurant
@@ -59,8 +60,9 @@ const App = () => {
       <main id="main">
       {page === 0 ? <Home restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> }
       {page === 1 ? <Add handleCreate={handleCreate} setPage={setPage}/> : <></> }
+      
 
-      {/* <div className="restaurants text-center">
+      <div className="restaurants text-center">
         {restaurants.map((restaurant) => {
           return (
             <>
@@ -68,7 +70,7 @@ const App = () => {
             </>
           )})
         }
-      </div> */}
+      </div>
       </main>
     </>
   )
