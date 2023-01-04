@@ -11,33 +11,32 @@ const handleChange = (event) => {
 const handleSubmit = (event) => {
     event.preventDefault()
     props.handleUpdate(restaurant)
+    props.setShowRest(true)
 }
 
-return (
-    <>
-            <details>
-            <summary>Edit Restaurant</summary>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="name">Name: </label>
-                    <input type="text" name="name" value={restaurant.name} onChange={handleChange}/>
-                    <br />
-                    <label htmlFor="address">Address: </label>
-                    <input type="text" name="address" value={restaurant.address} onChange={handleChange}/>
-                    <br />
-                    <label htmlFor="image">Image: </label>
-                    <input type="string" name="image" value={restaurant.image} onChange={handleChange}/>
-                    <br />
-                    <label htmlFor="price">Price: </label>
-                    <input type="string" name="price" value={restaurant.price} onChange={handleChange}/>
-                    <br />
-                    <label htmlFor="cuisine">Cuisine: </label>
-                    <input type="string" name="cuisine" value={restaurant.cuisine} onChange={handleChange}/>
-                    <br />
-                    <label htmlFor="number">Phone Num: </label>
-                    <input type="text" name="number" value={restaurant.number} onChange={handleChange}/>
-                    <input type="submit"/>
-                </form>
-            </details>
+
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="name">Name: </label>
+                <input type="text" name="name" placeholder={props.restaurant.name} onChange={handleChange}/>
+                <br />
+                <label htmlFor="address">Address: </label>
+                <input type="text" name="address" placeholder={props.restaurant.address} onChange={handleChange}/>
+                <br />
+                <label htmlFor="image">Image: </label>
+                <input type="text" name="image" placeholder={props.restaurant.image} onChange={handleChange}/>
+                <br />
+                <label htmlFor="price">Price: </label>
+                <input type="text" name="price" placeholder={props.restaurant.price} onChange={handleChange}/>
+                <br />
+                <label htmlFor="cuisine">Cuisine: </label>
+                <input type="text" name="cuisine" placeholder={props.restaurant.cuisine} onChange={handleChange}/>
+                <br />
+                <label htmlFor="number">Phone Num: </label>
+                <input type="text" name="number" placeholder={props.restaurant.number} onChange={handleChange}/>
+                <input type="submit"/>
+            </form>
         </>
 )
 }
