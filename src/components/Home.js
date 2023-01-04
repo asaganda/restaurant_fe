@@ -20,7 +20,7 @@ const Home = (props) => {
                 {props.restaurants.map((restaurant) => {
                     return (
                     // <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={props.handleDelete}/>
-                    <div className=" mx-3 my-3 card w-25 h" key={restaurant.id}>
+                    <div className="mx-3 my-3 card w-25 h" key={restaurant.id}>
                         <img src={restaurant.image} className="card-img-top my-2 w-100 h-50" alt="restaurant"/>
                         <div className="card-body">
                             <h5 className="card-title">Name: {restaurant.name}</h5>
