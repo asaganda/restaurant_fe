@@ -11,6 +11,7 @@ const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
   const [page, setPage] = useState(0)
+  
 
   // API ROUTES
   // Create new restaurant
