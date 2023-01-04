@@ -7,7 +7,7 @@ const Add = (props) => {
         image: "",
         price: "",
         cuisine: "",
-        number: ""
+        number: 0
     })
 
     const handleChange = (event) => {
@@ -22,8 +22,11 @@ const Add = (props) => {
 
     return (
         <>
-            <h3>Add new restaurant to list</h3>
-            <form onSubmit={handleSubmit}>
+        <br />
+        <br />
+            <form className='w-25 my-5 mx-auto d-flex flex-column align-items-center' onSubmit={handleSubmit}>
+            <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/52/52172.png" alt="" width="72" height="57"></img>
+            <h1 className="h3 mb-3 fw-normal">Add a Restuarant</h1>
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" onChange={handleChange}/>
                 <br />
@@ -39,9 +42,9 @@ const Add = (props) => {
                 <label htmlFor="cuisine">Cuisine: </label>
                 <input type="string" name="cuisine" onChange={handleChange}/>
                 <br />
-                <label htmlFor="number">Phone Num: </label>
-                <input type="text" name="number" onChange={handleChange}/>
-                <input type="submit"/>
+                <label htmlFor="number">Phone Number: </label>
+                <input type="number" name="number" onChange={handleChange}/>
+                <input className=' my-3 btn btn-lg btn-danger' type="submit"/>
             </form>
         </>
     )
