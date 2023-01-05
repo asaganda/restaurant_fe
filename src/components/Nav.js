@@ -18,7 +18,7 @@ const Nav = (props) => {
 
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" onClick={() => showPage(0)}>Restaurant</a>
+    <a class=" mx-3 navbar-brand" href="#" onClick={() => showPage(0)}>Restaurant</a>
     <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   Menu

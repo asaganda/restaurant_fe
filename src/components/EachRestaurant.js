@@ -16,13 +16,11 @@ const EachRestaurant = (props) => {
     }
     return(
         <>
-        <button className='btn btn-md btn-danger btn-block' onClick={() => backToList()}>Back to all restaurants</button>
-        
-        <h1>{props.restaurant.id}</h1>
+        <button className=' mx-3 btn btn-md btn-danger btn-block' onClick={() => backToList()}>Back to all restaurants</button>
 
         {showRest ? 
         <>
-            <div className='card w-25 show-restuarant'>
+            <div className='card mx-3 my-5 w-25 show-restuarant'>
                 <img src={props.restaurant.image} className="card-img-top h-50 w-100" alt="restaurant"/>
                 <div className="card-body">
                     <h5 className="card-title">Name: {props.restaurant.name}</h5>
