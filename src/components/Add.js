@@ -44,7 +44,7 @@ const Add = (props) => {
                 <br />
                 <label htmlFor="number">Phone Number: </label>
                 <input type="number" name="number" onChange={handleChange}/>
-                <input className=' my-3 btn btn-lg btn-danger' type="submit"/>
+                <input className='my-3 btn btn-lg btn-danger' type="submit"/>
             </form>
         </>
     )
