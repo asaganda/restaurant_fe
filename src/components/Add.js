@@ -20,11 +20,15 @@ const Add = (props) => {
         props.setPage(0)
     }
 
+    const goHome = () => {
+        props.setPage(0)
+    }
+
     return (
         <>
         <br />
         <br />
-            <form className='w-25 my-5 mx-auto d-flex flex-column align-items-center' onSubmit={handleSubmit}>
+            <form className='text-center add-form w-25 my-5 mx-auto d-flex flex-column align-items-center' onSubmit={handleSubmit}>
             <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/52/52172.png" alt="" width="72" height="57"></img>
             <h1 className="h3 mb-3 fw-normal">Add a Restuarant</h1>
                 <label htmlFor="name">Name: </label>
@@ -45,7 +49,9 @@ const Add = (props) => {
                 <label htmlFor="number">Phone Number: </label>
                 <input type="number" name="number" onChange={handleChange}/>
                 <input className='my-3 btn btn-lg btn-danger' type="submit"/>
+                <button className ='back-button btn btn-sm btn-danger btn-block' onClick={() => {goHome()}}>Back</button>
             </form>
+
         </>
     )
 }

@@ -14,6 +14,10 @@ const handleSubmit = (event) => {
     props.setShowRest(true)
 }
 
+const goHome = () => {
+    props.setPage(0)
+}
+
 
     return (
         <>
@@ -38,6 +42,7 @@ const handleSubmit = (event) => {
                 <label htmlFor="number">Phone Num: </label>
                 <input type="text" name="number" placeholder={props.restaurant.number} onChange={handleChange}/>
                 <input className='my-3 btn btn-lg btn-danger'  type="submit"/>
+                <button className ='back-button btn btn-sm btn-danger btn-block' onClick={() => {goHome()}}>Back</button>
             </form>
         </>
 )
