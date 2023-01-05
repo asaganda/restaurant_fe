@@ -17,7 +17,9 @@ const handleSubmit = (event) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className='w-25 my-5 mx-auto d-flex flex-column align-items-center' onSubmit={handleSubmit}>
+            <img class="mb-4" src="https://www.pngall.com/wp-content/uploads/8/Restaurant-Logo-PNG-Free-Image.png" alt="" width="125" height="125"></img>
+            <h1 class="h3 mb-3 fw-normal">Edit Restaurant</h1>
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" placeholder={props.restaurant.name} onChange={handleChange}/>
                 <br />
@@ -35,7 +37,7 @@ const handleSubmit = (event) => {
                 <br />
                 <label htmlFor="number">Phone Num: </label>
                 <input type="text" name="number" placeholder={props.restaurant.number} onChange={handleChange}/>
-                <input type="submit"/>
+                <input className='my-3 btn btn-lg btn-danger'  type="submit"/>
             </form>
         </>
 )
