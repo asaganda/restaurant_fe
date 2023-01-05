@@ -28,6 +28,7 @@ code {
 
 .main{
   margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .row{
@@ -39,7 +40,6 @@ code {
 }
 
 
-
 .all {
   margin-bottom: 2rem !important;
 }
@@ -47,6 +47,7 @@ code {
 .back {
   margin-top: 1rem;
 }
+
 
 .home-buttons {
   display: flex;
@@ -56,22 +57,58 @@ code {
   width: 10rem;
 }
 
+
 .show-restaurant{
   margin: auto !important;
   width: 40% !important;
 }
 
+.add-form{
+  margin-top: 0 !important;
+}
 
+
+.each{
+  margin-bottom: 5rem !important;
+}
 
 .each-buttons {
   display: flex;
   justify-content: space-between;
-  margin: auto;
+  margin-left: 1px;
   margin-top: 2rem;
   width: 10rem;
+  margin: auto;
 }
 
 
+.footer{
+  position:fixed;
+  bottom: 0rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height:2rem;
+  justify-content: space-between;
+  background-color: red;
+  padding-top: 2rem !important;
+  padding-bottom: 1rem;
+}
+
+.footer-title{
+  display: flex;
+  align-items: center;
+}
+
+.footer-text{
+  font-size: 1rem;
+}
+
+
+.footer-logo{
+  width:2rem;
+  margin-right: 1rem;
+}
 
 
 
@@ -102,5 +139,12 @@ code {
   .each {
     width: 60% !important;
   }
-
 }
+ @media (min-width:1450px) {
+
+  .each {
+    width: 560px !important;
+  }
+ 
+} 
+
