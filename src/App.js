@@ -57,7 +57,7 @@ const App = () => {
       <header>
         <Nav setPage={setPage}/>
       </header>
-      <main id="main">
+      <main className="main container-fluid">
       {page === 0 ? <Home restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> }
       {page === 1 ? <Add handleCreate={handleCreate} setPage={setPage}/> : <></> }
       

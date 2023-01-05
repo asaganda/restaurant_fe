@@ -16,22 +16,23 @@ const EachRestaurant = (props) => {
     }
     return(
         <>
-        <button className='btn btn-md btn-danger btn-block' onClick={() => backToList()}>Back to all restaurants</button>
         
-        <h1>{props.restaurant.id}</h1>
 
         {showRest ? 
         <>
-            <div className='card w-25 show-restuarant'>
-                <img src={props.restaurant.image} className="card-img-top h-50 w-100" alt="restaurant"/>
+            <div className='each card show-restaurant text-center'>
+                <img src={props.restaurant.image} className="each-image card-img-top h-50 w-100" alt="restaurant"/>
                 <div className="card-body">
                     <h5 className="card-title">Name: {props.restaurant.name}</h5>
                     <p className="card-text"> Price: {props.restaurant.price}</p>
                     <p className="card-text"> Cuisine: {props.restaurant.cuisine}</p>
                     <p className="card-text"> Address: {props.restaurant.address}</p>
                     <p className="card-text"> Phone Number: {props.restaurant.number}</p>
-                    <button className =' mx-1 btn btn-sm btn-danger btn-block' onClick={() => {setShowRest(false)}}>Edit</button>
-                    <button className='mx-1 btn btn-sm btn-danger btn-block' onClick={() => deleteRestaurant(props.restaurant)}>Delete</button>
+                    <div className='each-buttons'>
+                        <button className =' mx-1 btn btn-sm btn-danger btn-block' onClick={() => {setShowRest(false)}}>Edit</button>
+                        <button className='mx-1 btn btn-sm btn-danger btn-block' onClick={() => deleteRestaurant(props.restaurant)}>Delete</button>
+                    </div>
+                    <button className='btn btn-md btn-danger btn-block back' onClick={() => backToList()}>Back to all restaurants</button>
                 </div>
             </div>
             
