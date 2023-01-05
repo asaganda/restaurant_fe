@@ -11,3 +11,96 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: red;
+  z-index: 999;
+}
+
+
+.nav-logo{
+  width:3rem;
+  margin-bottom: 0 !important;
+}
+
+.main{
+  margin-top: 5rem !important;
+}
+
+.row{
+    margin: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+
+
+.all {
+  margin-bottom: 2rem !important;
+}
+
+.back {
+  margin-top: 1rem;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 5rem;
+  width: 10rem;
+}
+
+.show-restaurant{
+  margin: auto !important;
+  width: 40% !important;
+}
+
+
+
+.each-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 2rem;
+  width: 10rem;
+}
+
+
+
+
+
+@media screen and (max-width:550px) {
+
+  .all {
+    width: 80% !important;
+    margin: auto !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .each {
+    width: 80% !important;
+  }
+
+}
+
+
+@media (min-width:550px) and (max-width:1100px) {
+
+  .all {
+    width: 40% !important;
+    margin: auto !important;
+    margin-bottom: 2rem !important;
+    margin-top: 0 !important;
+  }
+
+  .each {
+    width: 60% !important;
+  }
+
+}
