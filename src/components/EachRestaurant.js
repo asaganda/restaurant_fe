@@ -9,6 +9,7 @@ const EachRestaurant = (props) => {
 
     const deleteRestaurant = (restaurant) => {
         props.handleDelete(restaurant)
+        props.setRestPage(0)
     }
 
     const backToList = () => {
