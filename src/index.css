@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
 }
 
 code {
@@ -27,6 +28,15 @@ code {
   margin-bottom: 0 !important;
 }
 
+/* NAVIGATION BAR TEXT */
+.navbar-brand{
+  font-family: 'Oleo Script', cursive;
+}
+
+.dropdown-toggle{
+  font-family: 'Raleway', sans-serif;
+}
+
 /* CONTAINER FOR HOME AND ADD PAGE */
 .main{
   margin-top: 5rem !important;
@@ -45,6 +55,7 @@ code {
 /* CARD ON ALL RESTAURANT PAGE */
 .all {
   margin-bottom: 2rem !important;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* BACK BUTTON FOR EACH RESTAURANT PAGE */
@@ -66,11 +77,17 @@ code {
   margin: auto !important;
   width: 40% !important;
   margin-bottom: 5rem !important;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* FORM ON ADD PAGE */
 .add-form{
   margin-top: 0 !important;
+}
+
+/* ADD AND EDIT FORM */
+form{
+  font-family: 'Raleway', sans-serif;
 }
 
 /* CONTAINER FOR EDIT AND DELETE BUTTONS ON EACH RESTAURANT PAGE */
@@ -107,6 +124,7 @@ code {
 /* TEXT OF FOOTER */
 .footer-text{
   font-size: 1rem;
+  font-family: 'Audiowide', cursive;
 }
 
 /* IMAGE OF FOOTER */
