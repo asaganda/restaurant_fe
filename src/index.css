@@ -5,9 +5,181 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: orange;
+  font-family: 'Roboto', sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* NAVIGATION BAR */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: red;
+  z-index: 999;
+}
+
+/* NAVIGATION TEXT AND IMAGE */
+.nav-logo{
+  width:3rem;
+  margin-bottom: 0 !important;
+}
+
+/* NAVIGATION BAR TEXT */
+.navbar-brand{
+  font-family: 'Oleo Script', cursive;
+}
+
+.dropdown-toggle{
+  font-family: 'Raleway', sans-serif;
+}
+
+/* CONTAINER FOR HOME AND ADD PAGE */
+.main{
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+}
+
+/* CONTAINER FOR CARDS OF ALL RESTAURANTS */
+.row{
+    margin: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* CARD ON ALL RESTAURANT PAGE */
+.all {
+  margin-bottom: 2rem !important;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* BACK BUTTON FOR EACH RESTAURANT PAGE */
+.back {
+  margin-top: 1rem;
+}
+
+/* CONTAINER FOR DETAILS AND DELETE BUTTON ON ALL RESTAURANTS PAGE */
+.home-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 5rem;
+  width: 10rem;
+}
+
+/* CARD ON EACH RESTAURANT PAGE */
+.show-restaurant{
+  margin: auto !important;
+  width: 40% !important;
+  margin-bottom: 5rem !important;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* FORM ON ADD PAGE */
+.add-form{
+  margin-top: 0 !important;
+}
+
+/* ADD AND EDIT FORM */
+form{
+  font-family: 'Raleway', sans-serif;
+}
+
+/* CONTAINER FOR EDIT AND DELETE BUTTONS ON EACH RESTAURANT PAGE */
+.each-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1px;
+  margin-top: 2rem;
+  width: 10rem;
+  margin: auto;
+}
+
+/* CONTAINER OF FOOTER */
+.footer{
+  position:fixed;
+  bottom: 0rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height:2rem;
+  justify-content: space-between;
+  background-color: red;
+  padding-top: 2rem !important;
+  padding-bottom: 1rem;
+}
+
+
+.menu-button{
+  background-color: orange;
+}
+
+/* CONTAINER FOR FOOTER TEXT */
+.footer-title{
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+/* TEXT OF FOOTER */
+.footer-text{
+  font-size: 1rem;
+  font-family: 'Audiowide', cursive;
+}
+
+/* IMAGE OF FOOTER */
+.footer-logo{
+  width:2rem;
+  margin-right: 1rem;
+
+}
+
+
+
+@media screen and (max-width:550px) {
+
+
+  /* CARD ON ALL RESTAURANT PAGE */
+  .all {
+    width: 80% !important;
+    margin: auto !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .show-restaurant {
+    width: 80% !important;
+  }
+
+}
+
+
+@media (min-width:550px) and (max-width:1100px) {
+
+  /* CARD ON ALL RESTAURANT PAGE */
+  .all {
+    width: 40% !important;
+    margin: auto !important;
+    margin-bottom: 2rem !important;
+    margin-top: 0 !important;
+  }
+
+  /* CARD ON EACH RESTAURANT PAGE */
+  .show-restaurant {
+    width: 60% !important;
+  }
+}
+ @media (min-width:1450px) {
+
+  /* CARD ON EACH RESTAURANT PAGE */
+  .show-restaurant {
+    width: 560px !important;
+  }
+ 
+} 
+
