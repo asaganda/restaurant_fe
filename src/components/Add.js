@@ -29,7 +29,7 @@ const Add = (props) => {
         <br />
         <br />
             <form className='text-center add-form w-25 my-5 mx-auto d-flex flex-column align-items-center' onSubmit={handleSubmit}>
-            <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/52/52172.png" alt="" width="72" height="57"></img>
+            <img className="mb-4" src="https://cdn-icons-png.flaticon.com/512/52/52172.png" alt="" width="72" height="57"></img>
             <h1 className="h3 mb-3 fw-normal">Add a Restuarant</h1>
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" onChange={handleChange}/>
