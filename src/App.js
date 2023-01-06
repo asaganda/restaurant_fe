@@ -53,10 +53,6 @@ const App = () => {
   getRestaurants()
   }, [])
 
-  const goHome = () => {
-    setPage(0)
-}
-
 
   return (
     <>
@@ -64,11 +60,10 @@ const App = () => {
         <Nav setPage={setPage}/>
       </header>
       <main className="main container-fluid">
-      {page === 0 ? <Home restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> }
+      {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> }
       {page === 1 ? 
       <>
         <Add handleCreate={handleCreate} setPage={setPage}/> 
-        {/* <button className ='back-button btn btn-sm btn-danger btn-block' onClick={() => {goHome()}}>Back</button> */}
       </>
       :
       <></> }

@@ -39,7 +39,7 @@ const EachRestaurant = (props) => {
         </>
         :
         <>
-            <Edit restaurant={props.restaurant} handleUpdate={props.handleUpdate} setShowRest={setShowRest}/>
+            <Edit setPage={props.setPage} restaurant={props.restaurant} handleUpdate={props.handleUpdate} setShowRest={setShowRest}/>
         </>
         }
         

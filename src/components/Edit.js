@@ -22,8 +22,8 @@ const goHome = () => {
     return (
         <>
             <form className='w-25 my-5 mx-auto d-flex flex-column align-items-center' onSubmit={handleSubmit}>
-            <img class="mb-4" src="https://www.pngall.com/wp-content/uploads/8/Restaurant-Logo-PNG-Free-Image.png" alt="" width="125" height="125"></img>
-            <h1 class="h3 mb-3 fw-normal">Edit Restaurant</h1>
+            <img className="mb-4" src="https://www.pngall.com/wp-content/uploads/8/Restaurant-Logo-PNG-Free-Image.png" alt="" width="125" height="125"></img>
+            <h1 className="h3 mb-3 fw-normal">Edit Restaurant</h1>
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" placeholder={props.restaurant.name} onChange={handleChange}/>
                 <br />
