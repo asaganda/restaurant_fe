@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: orange;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -114,6 +115,10 @@ form{
   padding-bottom: 1rem;
 }
 
+
+.menu-button{
+  background-color: orange;
+
 /* CONTAINER FOR FOOTER TEXT */
 .footer-title{
   display: flex;
@@ -131,6 +136,7 @@ form{
 .footer-logo{
   width:2rem;
   margin-right: 1rem;
+
 }
 
 
