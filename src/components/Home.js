@@ -16,7 +16,7 @@ const Home = (props) => {
     return(
         <>
         {restPage === 0 ?
-            <div className="row container-fluid">
+            <div className="row container-fluid ">
                 {props.restaurants.map((restaurant) => {
                     return (
                     // <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={props.handleDelete}/>

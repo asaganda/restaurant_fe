@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: orange;
 }
 
 code {
@@ -71,7 +72,9 @@ code {
   width: 10rem;
 }
 
-
+.menu-button{
+  background-color: orange;
+}
 
 
 
