@@ -20,7 +20,7 @@ const EachRestaurant = (props) => {
 
         {showRest ? 
         <>
-            <div className='each show-restaurant text-center '>
+            <div className='card show-restaurant text-center '>
                 <img src={props.restaurant.image} className="each-image card-img-top h-50 w-100" alt="restaurant"/>
                 <div className="card-body">
                     <h5 className="card-title">Name: {props.restaurant.name}</h5>
