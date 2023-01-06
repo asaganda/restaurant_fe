@@ -42,7 +42,7 @@ const Home = (props) => {
             props.restaurants.map((restaurant) => {
                 return(
                     <div key={restaurant.id}>
-                        {restPage === restaurant.id ? <EachRestaurant setPage={props.setPage} restaurant={restaurant} setRestPage={setRestPage} handleUpdate={props.handleUpdate}/> : <></> }
+                        {restPage === restaurant.id ? <EachRestaurant handleDelete={props.handleDelete} setPage={props.setPage} restaurant={restaurant} setRestPage={setRestPage} handleUpdate={props.handleUpdate}/> : <></> }
                     </div>
                 )
             })
