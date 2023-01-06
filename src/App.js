@@ -6,6 +6,7 @@ import './App.css'
 import Add from './components/Add'
 import Edit from './components/Edit'
 import Home from './components/Home'
+import Footer from './components/Footer'
 
 const App = () => {
   // States
@@ -52,26 +53,22 @@ const App = () => {
   getRestaurants()
   }, [])
 
+
   return (
     <>
       <header>
         <Nav setPage={setPage}/>
       </header>
       <main className="main container-fluid">
-      {page === 0 ? <Home restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> }
-      {page === 1 ? <Add handleCreate={handleCreate} setPage={setPage}/> : <></> }
-      
-
-      {/* <div className="restaurants text-center">
-        {restaurants.map((restaurant) => {
-          return (
-            <>
-              <Edit handleUpdate={handleUpdate} id={restaurant.id} restaurant={restaurant}/>
-            </>
-          )})
-        }
-      </div> */}
+      {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> }
+      {page === 1 ? 
+      <>
+        <Add handleCreate={handleCreate} setPage={setPage}/> 
+      </>
+      :
+      <></> }
       </main>
+      <Footer/>
     </>
   )
 }
