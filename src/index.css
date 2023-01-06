@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+/* NAVIGATION BAR */
 .navbar {
   position: fixed;
   width: 100%;
@@ -20,17 +21,19 @@ code {
   z-index: 999;
 }
 
-
+/* NAVIGATION TEXT AND IMAGE */
 .nav-logo{
   width:3rem;
   margin-bottom: 0 !important;
 }
 
+/* CONTAINER FOR HOME AND ADD PAGE */
 .main{
   margin-top: 5rem !important;
   margin-bottom: 5rem !important;
 }
 
+/* CONTAINER FOR CARDS OF ALL RESTAURANTS */
 .row{
     margin: auto !important;
     display: flex;
@@ -39,16 +42,17 @@ code {
     align-items: stretch;
 }
 
-
+/* CARD ON ALL RESTAURANT PAGE */
 .all {
   margin-bottom: 2rem !important;
 }
 
+/* BACK BUTTON FOR EACH RESTAURANT PAGE */
 .back {
   margin-top: 1rem;
 }
 
-
+/* CONTAINER FOR DETAILS AND DELETE BUTTON ON ALL RESTAURANTS PAGE */
 .home-buttons {
   display: flex;
   justify-content: space-between;
@@ -57,21 +61,19 @@ code {
   width: 10rem;
 }
 
-
+/* CARD ON EACH RESTAURANT PAGE */
 .show-restaurant{
   margin: auto !important;
   width: 40% !important;
+  margin-bottom: 5rem !important;
 }
 
+/* FORM ON ADD PAGE */
 .add-form{
   margin-top: 0 !important;
 }
 
-
-.each{
-  margin-bottom: 5rem !important;
-}
-
+/* CONTAINER FOR EDIT AND DELETE BUTTONS ON EACH RESTAURANT PAGE */
 .each-buttons {
   display: flex;
   justify-content: space-between;
@@ -81,7 +83,7 @@ code {
   margin: auto;
 }
 
-
+/* CONTAINER OF FOOTER */
 .footer{
   position:fixed;
   bottom: 0rem;
@@ -95,16 +97,19 @@ code {
   padding-bottom: 1rem;
 }
 
+/* CONTAINER FOR FOOTER TEXT */
 .footer-title{
   display: flex;
   align-items: center;
+  margin-left: 1rem;
 }
 
+/* TEXT OF FOOTER */
 .footer-text{
   font-size: 1rem;
 }
 
-
+/* IMAGE OF FOOTER */
 .footer-logo{
   width:2rem;
   margin-right: 1rem;
@@ -114,13 +119,15 @@ code {
 
 @media screen and (max-width:550px) {
 
+
+  /* CARD ON ALL RESTAURANT PAGE */
   .all {
     width: 80% !important;
     margin: auto !important;
     margin-bottom: 2rem !important;
   }
 
-  .each {
+  .show-restaurant {
     width: 80% !important;
   }
 
@@ -129,6 +136,7 @@ code {
 
 @media (min-width:550px) and (max-width:1100px) {
 
+  /* CARD ON ALL RESTAURANT PAGE */
   .all {
     width: 40% !important;
     margin: auto !important;
@@ -136,13 +144,15 @@ code {
     margin-top: 0 !important;
   }
 
-  .each {
+  /* CARD ON EACH RESTAURANT PAGE */
+  .show-restaurant {
     width: 60% !important;
   }
 }
  @media (min-width:1450px) {
 
-  .each {
+  /* CARD ON EACH RESTAURANT PAGE */
+  .show-restaurant {
     width: 560px !important;
   }
  
