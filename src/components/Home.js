@@ -25,11 +25,13 @@ const Home = (props) => {
                         <div className="card-body">
                             <h5 className="card-title">Name: {restaurant.name}</h5>
                             <p className="card-text"> Cuisine: {restaurant.cuisine}</p>
+                            <p className="card-text"> Reviews:</p>
+                            <p>{restaurant.reviews[0].comment}</p>
+                            <p className="fs-6 fst-italic">click details for more reviews</p>
                             <div className='home-buttons'>
                                 <button className=' mx-1 btn btn-sm btn-danger btn-block' onClick={() => showRest(restaurant.id)}>Details</button>
                                 <button className='mx-1 btn btn-sm btn-danger btn-block' onClick={() => deleteRestaurant(restaurant)}>Delete</button>
                             </div>
-                            {/* <button onClick={}>Edit</button> */}
                         </div>
                     </div>
                     )
