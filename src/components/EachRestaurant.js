@@ -60,10 +60,12 @@ const EachRestaurant = (props) => {
                     {props.restaurant.reviews.map(review => (
                         <p key={review.id} className="fw-bold">"{review.comment}"</p>
                     ))}
-                    <p>Add a review:</p>
-                    <form onSubmit={handleAddNewReview}>
-                        <textarea className="mb-3" placeholder="hello" name="comment" value={restInfo.reviews[0].comment} onChange={handleNewReview} />
-                        <button type="submit">Add review</button>
+                    <form className="mb-3" onSubmit={handleAddNewReview}>
+                        <label className="d-flex flex-column mx-auto w-75">
+                            Add a review:
+                            <textarea className="mb-3" value={restInfo.reviews[0].comment} onChange={handleNewReview} rows={3} cols={30}/>
+                        </label>
+                        <button className="btn btn-sm btn-warning" type="submit">Add review</button>
                     </form>
                     <div className='each-buttons'>
                         <button className =' mx-1 btn btn-sm btn-danger btn-block' onClick={() => {setShowRest(false)}}>Edit</button>
