@@ -188,6 +188,11 @@ form{
   .restaurant-img {
     height: 12em;
     object-fit: cover;
+    scale: 1;
+    transition: scale 0.4s;
+  }
+  .restaurant-img:hover {
+    scale: 1.1;
   }
 }
 
@@ -200,6 +205,11 @@ form{
   .restaurant-img {
     height: 17em;
     object-fit: cover;
+    scale: 1;
+    transition: scale 0.4s;
+  }
+  .restaurant-img:hover {
+    scale: 1.1;
   }
 } 
 
