@@ -7,17 +7,20 @@ import Add from './components/Add'
 import Edit from './components/Edit'
 import Home from './components/Home'
 import Footer from './components/Footer'
+import "./index.css"
 
 const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
   const [page, setPage] = useState(0)
   
+  const baseURL = "https://restaurant-api.herokuapp.com/api/restaurants"
+  // const baseURL = "http://localhost:8000/api/restaurants"
 
   // API ROUTES
   // Create new restaurant
   const handleCreate = (newRest) => {
-    axios.post("https://restaurant-api.herokuapp.com/api/restaurants", newRest)
+    axios.post(baseURL, newRest)
     .then((res) => {
       console.log(res.data)
       setRestaurants([...restaurants, res.data])
@@ -26,7 +29,7 @@ const App = () => {
 
   // Fetching all restaurants
   const getRestaurants = () => {
-  axios.get('https://restaurant-api.herokuapp.com/api/restaurants')
+  axios.get(baseURL)
   .then((response) => setRestaurants(response.data),
     (err) => console.error(err))
   .catch((error) => console.error(error))
@@ -34,7 +37,7 @@ const App = () => {
 
   // Delete a restaurant
   const handleDelete = (data) => {
-    axios.delete('https://restaurant-api.herokuapp.com/api/restaurants/' + data.id)
+    axios.delete(baseURL + '/' + data.id)
     .then((res) => {
       getRestaurants()
     })
@@ -43,7 +46,7 @@ const App = () => {
 
   const handleUpdate = (editRestaurant) => {
     console.log(editRestaurant)
-    axios.put('https://restaurant-api.herokuapp.com/api/restaurants/' + editRestaurant.id, editRestaurant)
+    axios.put(baseURL + '/' + editRestaurant.id, editRestaurant)
       .then((response) => {
         getRestaurants()
       })

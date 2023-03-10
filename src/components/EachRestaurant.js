@@ -6,6 +6,13 @@ import Card from 'react-bootstrap/Card'
 
 const EachRestaurant = (props) => {
     const [showRest, setShowRest] = useState(true)
+    // get specific restaurant info as well
+    // const [newReview, setNewReview] = useState({ comment: ""})
+    const [restInfo, setRestInfo] = useState({
+        ...props.restaurant,
+        reviews: [{ comment: "" }]
+    })
+    
 
     const deleteRestaurant = (restaurant) => {
         props.handleDelete(restaurant)
@@ -14,6 +21,27 @@ const EachRestaurant = (props) => {
 
     const backToList = () => {
         props.setRestPage(0)
+    }
+
+    const handleNewReview = (e) => {
+        let localRest = {
+            ...restInfo
+        }
+        localRest = {
+            ...restInfo,
+            reviews: [{ comment: e.target.value }]
+        }
+        setRestInfo(localRest)
+    }
+
+    const handleAddNewReview = (e) => {
+        e.preventDefault()
+        console.log(restInfo)
+        props.handleUpdate(restInfo)
+        setRestInfo(prev => ({
+            ...prev,
+            reviews: [{ comment: ""}]
+        }))
     }
     return(
         <>
@@ -29,6 +57,17 @@ const EachRestaurant = (props) => {
                     <p className="card-text"> Cuisine: {props.restaurant.cuisine}</p>
                     <p className="card-text"> Address: {props.restaurant.address}</p>
                     <p className="card-text"> Phone Number: {props.restaurant.number}</p>
+                    <p className="card-text">Reviews:</p>
+                    {props.restaurant.reviews.map(review => (
+                        <p key={review.id} className="fw-bold">"{review.comment}"</p>
+                    ))}
+                    <form className="mb-3" onSubmit={handleAddNewReview}>
+                        <label className="d-flex flex-column mx-auto w-75">
+                            Add a review:
+                            <textarea className="mb-3" value={restInfo.reviews[0].comment} onChange={handleNewReview} rows={3} cols={30}/>
+                        </label>
+                        <button className="btn btn-sm btn-warning" type="submit">Add review</button>
+                    </form>
                     <div className='each-buttons'>
                         <button className =' mx-1 btn btn-sm btn-danger btn-block' onClick={() => {setShowRest(false)}}>Edit</button>
                         <button className='mx-1 btn btn-sm btn-danger btn-block' onClick={() => deleteRestaurant(props.restaurant)}>Delete</button>
