@@ -6,6 +6,13 @@ import Card from 'react-bootstrap/Card'
 
 const EachRestaurant = (props) => {
     const [showRest, setShowRest] = useState(true)
+    // get specific restaurant info as well
+    // const [newReview, setNewReview] = useState({ comment: ""})
+    const [restInfo, setRestInfo] = useState({
+        ...props.restaurant,
+        reviews: [{ comment: "" }]
+    })
+    
 
     const deleteRestaurant = (restaurant) => {
         props.handleDelete(restaurant)
@@ -13,6 +20,27 @@ const EachRestaurant = (props) => {
 
     const backToList = () => {
         props.setRestPage(0)
+    }
+
+    const handleNewReview = (e) => {
+        let test = {
+            ...restInfo
+        }
+        test = {
+            ...restInfo,
+            reviews: [{ comment: e.target.value }]
+        }
+        setRestInfo(test)
+    }
+
+    const handleAddNewReview = (e) => {
+        e.preventDefault()
+        console.log(restInfo)
+        props.handleUpdate(restInfo)
+        setRestInfo(prev => ({
+            ...prev,
+            review: [{ comment: ""}]
+        }))
     }
     return(
         <>
@@ -30,8 +58,13 @@ const EachRestaurant = (props) => {
                     <p className="card-text"> Phone Number: {props.restaurant.number}</p>
                     <p className="card-text">Reviews:</p>
                     {props.restaurant.reviews.map(review => (
-                        <p className="fw-bold">"{review.comment}"</p>
+                        <p key={review.id} className="fw-bold">"{review.comment}"</p>
                     ))}
+                    <p>Add a review:</p>
+                    <form onSubmit={handleAddNewReview}>
+                        <textarea className="mb-3" placeholder="hello" name="comment" onChange={handleNewReview} />
+                        <button type="submit">Add review</button>
+                    </form>
                     <div className='each-buttons'>
                         <button className =' mx-1 btn btn-sm btn-danger btn-block' onClick={() => {setShowRest(false)}}>Edit</button>
                         <button className='mx-1 btn btn-sm btn-danger btn-block' onClick={() => deleteRestaurant(props.restaurant)}>Delete</button>

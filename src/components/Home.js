@@ -16,17 +16,16 @@ const Home = (props) => {
     return(
         <>
         {restPage === 0 ?
-            <div className="row container-fluid ">
+            <div className="row">
                 {props.restaurants.map((restaurant) => {
                     return (
-                    // <Restaurant restaurant={restaurant} key={restaurant.id} handleDelete={props.handleDelete}/>
                     <div className="all mx-3 my-3 card w-25 text-center" key={restaurant.id}>
                         <img src={restaurant.image} className="card-img-top my-2 w-100 h-50" alt="restaurant"/>
                         <div className="card-body">
                             <h5 className="card-title">Name: {restaurant.name}</h5>
                             <p className="card-text"> Cuisine: {restaurant.cuisine}</p>
                             <p className="card-text"> Reviews:</p>
-                            <p>{restaurant.reviews[0].comment}</p>
+                            <p className="fw-bold">{restaurant.reviews[0].comment}</p>
                             <p className="fs-6 fst-italic">click details for more reviews</p>
                             <div className='home-buttons'>
                                 <button className=' mx-1 btn btn-sm btn-danger btn-block' onClick={() => showRest(restaurant.id)}>Details</button>
