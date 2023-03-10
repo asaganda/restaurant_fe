@@ -7,14 +7,15 @@ import Add from './components/Add'
 import Edit from './components/Edit'
 import Home from './components/Home'
 import Footer from './components/Footer'
+import "./index.css"
 
 const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
   const [page, setPage] = useState(0)
   
-  // const baseURL = "https://restaurant-api.herokuapp.com/api/restaurants"
-  const baseURL = "http://localhost:8000/api/restaurants"
+  const baseURL = "https://restaurant-api.herokuapp.com/api/restaurants"
+  // const baseURL = "http://localhost:8000/api/restaurants"
 
   // API ROUTES
   // Create new restaurant
