@@ -23,14 +23,14 @@ const EachRestaurant = (props) => {
     }
 
     const handleNewReview = (e) => {
-        let test = {
+        let localRest = {
             ...restInfo
         }
-        test = {
+        localRest = {
             ...restInfo,
             reviews: [{ comment: e.target.value }]
         }
-        setRestInfo(test)
+        setRestInfo(localRest)
     }
 
     const handleAddNewReview = (e) => {
@@ -39,7 +39,7 @@ const EachRestaurant = (props) => {
         props.handleUpdate(restInfo)
         setRestInfo(prev => ({
             ...prev,
-            review: [{ comment: ""}]
+            reviews: [{ comment: ""}]
         }))
     }
     return(
@@ -62,7 +62,7 @@ const EachRestaurant = (props) => {
                     ))}
                     <p>Add a review:</p>
                     <form onSubmit={handleAddNewReview}>
-                        <textarea className="mb-3" placeholder="hello" name="comment" onChange={handleNewReview} />
+                        <textarea className="mb-3" placeholder="hello" name="comment" value={restInfo.reviews[0].comment} onChange={handleNewReview} />
                         <button type="submit">Add review</button>
                     </form>
                     <div className='each-buttons'>
