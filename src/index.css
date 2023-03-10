@@ -69,7 +69,7 @@ code {
   display: flex;
   justify-content: space-between;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 2rem;
   width: 10rem;
 }
 
@@ -147,13 +147,18 @@ form{
 
   /* CARD ON ALL RESTAURANT PAGE */
   .all {
-    width: 80% !important;
+    width: 95% !important;
     margin: auto !important;
     margin-bottom: 2rem !important;
   }
 
   .show-restaurant {
-    width: 80% !important;
+    width: 95% !important;
+  }
+
+  .restaurant-img {
+    height: 18em;
+    object-fit: cover;
   }
 
 }
@@ -173,13 +178,28 @@ form{
   .show-restaurant {
     width: 60% !important;
   }
+  .restaurant-img {
+    height: 12em;
+    object-fit: cover;
+  }
 }
+
+@media (min-width: 550px) and (max-width:1450px) {
+  .restaurant-img {
+    height: 12em;
+    object-fit: cover;
+  }
+}
+
  @media (min-width:1450px) {
 
   /* CARD ON EACH RESTAURANT PAGE */
   .show-restaurant {
     width: 560px !important;
   }
- 
+  .restaurant-img {
+    height: 17em;
+    object-fit: cover;
+  }
 } 
 
