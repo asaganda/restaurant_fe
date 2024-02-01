@@ -22,6 +22,9 @@ code {
   background-color: red;
   z-index: 999;
 }
+.d-inline {
+  display: inline;
+}
 
 /* NAVIGATION TEXT AND IMAGE */
 .nav-logo{
