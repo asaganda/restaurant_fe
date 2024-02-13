@@ -7,11 +7,18 @@ const Add = (props) => {
         image: "",
         price: "",
         cuisine: "",
-        number: 0
+        number: 0,
+        reviews: [{ comment: "" }]
     })
 
     const handleChange = (event) => {
         setRestaurant({...restaurant, [event.target.name]: event.target.value})
+    }
+    const handleReview = (event) => {
+        setRestaurant({
+            ...restaurant,
+            reviews: [{ comment: event.target.value}]
+        })
     }
 
     const handleSubmit = (event) => {
@@ -48,6 +55,10 @@ const Add = (props) => {
                 <br />
                 <label htmlFor="number">Phone Number: </label>
                 <input type="number" name="number" onChange={handleChange}/>
+                <label className="d-flex flex-column mx-auto w-75">
+                    Add a review:
+                    <textarea className="mb-3" value={restaurant.reviews[0].comment} onChange={handleReview} rows={3} cols={30}/>
+                </label>
                 <input className='my-3 btn btn-lg btn-danger' type="submit"/>
                 <button className ='back-button btn btn-sm btn-danger btn-block' onClick={() => {goHome()}}>Back</button>
             </form>
