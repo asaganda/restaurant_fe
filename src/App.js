@@ -21,6 +21,7 @@ const App = () => {
   // const baseURL = "https://restaurant-api.herokuapp.com/api/restaurants"
   const baseURL = "http://localhost:8000/api/restaurants"
   const signUpRoute = "http://localhost:8000/signup/"
+  const loginRoute = "http://localhost:8000/login/"
 
   // API ROUTES
   // Create new restaurant
@@ -59,14 +60,17 @@ const App = () => {
   }
 
   const handleNewUserSignUp = (newUser) => {
-    console.log(`New user react side: ${newUser}`)
+    console.log(`New user react side: ${newUser.username}`)
     axios.post(signUpRoute, newUser)
       .then(res => console.log(res))
       .catch(error => console.log(error));
   }
 
   const loginUser = (userInfo) => {
-    console.log(`Existing user react side: ${userInfo}`)
+    console.log(userInfo)
+    axios.post(loginRoute, userInfo)
+      .then(res => console.log(res))
+      .catch(error => console.log(error));
   }
 
   useEffect(() => {
@@ -84,7 +88,7 @@ const App = () => {
         isLoggedIn ? <Home/> : <SignUp/>
       } */}
       {
-        loginPage === 0 ? <SignUp handleNewUserSignUp={handleNewUserSignUp} setLoginPage={setLoginPage}/> : <Login loginUser={loginUser}/>
+        loginPage === 0 ? <Login loginUser={loginUser}/> : <SignUp handleNewUserSignUp={handleNewUserSignUp} setLoginPage={setLoginPage}/>
       }
       {/* {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> } */}
       {page === 1 ? 

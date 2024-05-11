@@ -23,7 +23,7 @@ const Login = ({ loginUser }) => {
                 <input type="text" name="username" onChange={handleChange}/>
                 <br />
                 <label htmlFor="address">Password: </label>
-                <input type="text" name="password1" onChange={handleChange}/>
+                <input type="text" name="password" onChange={handleChange}/>
                 <br />
                 <input className='my-3 btn btn-lg btn-danger' type="submit"/>
             </form>
