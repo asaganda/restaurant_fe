@@ -7,15 +7,20 @@ import Add from './components/Add'
 import Edit from './components/Edit'
 import Home from './components/Home'
 import Footer from './components/Footer'
+import SignUp from './SignUp_Login/SignUp'
 import "./index.css"
+import Login from './SignUp_Login/Login'
 
 const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
   const [page, setPage] = useState(0)
+  const [loginPage, setLoginPage] = useState(0)
+  // const [isLoggedIn, setIsLogged] = useState(false)
   
-  const baseURL = "https://restaurant-api.herokuapp.com/api/restaurants"
-  // const baseURL = "http://localhost:8000/api/restaurants"
+  // const baseURL = "https://restaurant-api.herokuapp.com/api/restaurants"
+  const baseURL = "http://localhost:8000/api/restaurants"
+  const signUpRoute = "http://localhost:8000/signup/"
 
   // API ROUTES
   // Create new restaurant
@@ -44,12 +49,24 @@ const App = () => {
     .catch((err) => console.log(err))
   }
 
+  // Update restaurant
   const handleUpdate = (editRestaurant) => {
     console.log(editRestaurant)
     axios.put(baseURL + '/' + editRestaurant.id, editRestaurant)
       .then((response) => {
         getRestaurants()
       })
+  }
+
+  const handleNewUserSignUp = (newUser) => {
+    console.log(`New user react side: ${newUser}`)
+    axios.post(signUpRoute, newUser)
+      .then(res => console.log(res))
+      .catch(error => console.log(error));
+  }
+
+  const loginUser = (userInfo) => {
+    console.log(`Existing user react side: ${userInfo}`)
   }
 
   useEffect(() => {
@@ -63,7 +80,13 @@ const App = () => {
         <Nav setPage={setPage}/>
       </header>
       <main className="main container-fluid">
-      {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> }
+      {/* {
+        isLoggedIn ? <Home/> : <SignUp/>
+      } */}
+      {
+        loginPage === 0 ? <SignUp handleNewUserSignUp={handleNewUserSignUp} setLoginPage={setLoginPage}/> : <Login loginUser={loginUser}/>
+      }
+      {/* {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> } */}
       {page === 1 ? 
       <>
         <Add handleCreate={handleCreate} setPage={setPage}/> 
