@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
-const SignUp = ({ handleNewUserSignUp, setLoginPage }) => {
+const SignUp = ({ axios, signUpRoute }) => {
+    const navigate = useNavigate();
     const [newUser, setNewUser] = useState({
         username: '',
         password1: '',
@@ -14,7 +16,17 @@ const SignUp = ({ handleNewUserSignUp, setLoginPage }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleNewUserSignUp(newUser);
-        setLoginPage(1)
+        // setLoginPage(1)
+    }
+
+    const handleNewUserSignUp = (newUser) => {
+        console.log(`New user react side: ${newUser.username}`)
+        axios.post(signUpRoute, newUser)
+            .then(res => {
+                console.log(res);
+                navigate('/home');
+            })
+            .catch(error => console.log(error));
     }
 
     return (
@@ -31,6 +43,7 @@ const SignUp = ({ handleNewUserSignUp, setLoginPage }) => {
                 <input type="string" name="password2" onChange={handleChange}/>
                 <br />
                 <input className='my-3 btn btn-lg btn-danger' type="submit"/>
+                <Link to="/">Log In</Link>
             </form>
         </>
     )

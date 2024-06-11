@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
-const Login = ({ loginUser }) => {
+const Login = ({ axios, loginRoute }) => {
+    const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState({
         username: '',
         password: '',
@@ -15,6 +17,18 @@ const Login = ({ loginUser }) => {
         loginUser(userInfo)
     }
 
+    const loginUser = (userInfo) => {
+        console.log(userInfo)
+        axios.post(loginRoute, userInfo, {
+            withCredentials: true,
+        })
+            .then(res => {
+                console.log(res)
+                navigate('/home');
+            })
+            .catch(error => console.log(error));
+    }
+
     return (
         <>
             <h2>Login Page</h2>
@@ -25,7 +39,8 @@ const Login = ({ loginUser }) => {
                 <label htmlFor="address">Password: </label>
                 <input type="text" name="password" onChange={handleChange}/>
                 <br />
-                <input className='my-3 btn btn-lg btn-danger' type="submit"/>
+                <button className='my-3 btn btn-lg btn-danger' type="submit">Login</button>
+                <Link to="/signup">Sign Up</Link>
             </form>
         </>
     )

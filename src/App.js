@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Restaurant from './components/Restaurant'
 import Nav from './components/Nav'
 import './App.css'
@@ -10,12 +11,17 @@ import Footer from './components/Footer'
 import SignUp from './SignUp_Login/SignUp'
 import "./index.css"
 import Login from './SignUp_Login/Login'
+import ProtectedRoute from './SignUp_Login/ProtectedRoute'
+import { AuthProvider } from './SignUp_Login/AuthContext'
+// import { AuthContext } from './SignUp_Login/AuthContext'
 
 const App = () => {
   // States
   const [restaurants, setRestaurants] = useState([])
   const [page, setPage] = useState(0)
-  const [loginPage, setLoginPage] = useState(0)
+  // const [loginPage, setLoginPage] = useState(0)
+  // const { navigate } = useNavigate()
+
   // const [isLoggedIn, setIsLogged] = useState(false)
   
   // const baseURL = "https://restaurant-api.herokuapp.com/api/restaurants"
@@ -59,47 +65,52 @@ const App = () => {
       })
   }
 
-  const handleNewUserSignUp = (newUser) => {
-    console.log(`New user react side: ${newUser.username}`)
-    axios.post(signUpRoute, newUser)
-      .then(res => console.log(res))
-      .catch(error => console.log(error));
-  }
-
-  const loginUser = (userInfo) => {
-    console.log(userInfo)
-    axios.post(loginRoute, userInfo)
-      .then(res => console.log(res))
-      .catch(error => console.log(error));
-  }
-
   useEffect(() => {
   getRestaurants()
   }, [])
 
 
   return (
-    <>
-      <header>
-        <Nav setPage={setPage}/>
-      </header>
-      <main className="main container-fluid">
-      {/* {
-        isLoggedIn ? <Home/> : <SignUp/>
-      } */}
-      {
-        loginPage === 0 ? <Login loginUser={loginUser}/> : <SignUp handleNewUserSignUp={handleNewUserSignUp} setLoginPage={setLoginPage}/>
-      }
-      {/* {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> } */}
-      {page === 1 ? 
-      <>
-        <Add handleCreate={handleCreate} setPage={setPage}/> 
-      </>
-      :
-      <></> }
-      </main>
-      <Footer/>
-    </>
+    <AuthProvider>
+      <BrowserRouter>
+        <header>
+          <Routes>
+            <Route path="/login" element={<Nav setPage={setPage}/>}></Route>
+            <Route path="/signup" element={<Nav setPage={setPage}/>}></Route>
+          </Routes>
+        </header>
+        <main className="main container-fluid">
+        {/* {
+          isLoggedIn ? <Home/> : <SignUp/>
+        } */}
+        {/* {
+          loginPage === 0 ? <Login loginUser={loginUser}/> : <SignUp handleNewUserSignUp={handleNewUserSignUp} setLoginPage={setLoginPage}/>
+        } */}
+        {/* {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> } */}
+        {/* {page === 1 ? 
+        <>
+          <Add handleCreate={handleCreate} setPage={setPage}/> 
+        </>
+        :
+        <></> } */}
+        {/* Route for /login
+          Place link inside here for route to /signup
+        Route for /home *protected view* */}
+          <Routes>
+            <Route path="/login" element={<Login axios={axios} loginRoute={loginRoute}/>}></Route>
+            <Route path="/signup" element={<SignUp axios={axios} signUpRoute={signUpRoute}/>}></Route>
+            <Route path="/home" element={<ProtectedRoute />}>
+              <Route index element={<Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate} />} />
+            </Route>
+            {/* <ProtectedRoute path="/home" element={<Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/>}/> */}
+          </Routes>
+        </main>
+        <Routes>
+          <Route path="/login" element={<Footer/>}></Route>
+          <Route path="/signup" element={<Footer/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
