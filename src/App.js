@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Restaurant from './components/Restaurant'
 import Nav from './components/Nav'
 import './App.css'
@@ -12,7 +12,7 @@ import SignUp from './SignUp_Login/SignUp'
 import "./index.css"
 import Login from './SignUp_Login/Login'
 import ProtectedRoute from './SignUp_Login/ProtectedRoute'
-import { AuthProvider } from './SignUp_Login/AuthContext'
+// import { AuthProvider } from './SignUp_Login/AuthContext'
 // import { AuthContext } from './SignUp_Login/AuthContext'
 
 const App = () => {
@@ -71,46 +71,29 @@ const App = () => {
 
 
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <>
         <header>
           <Routes>
             <Route path="/login" element={<Nav setPage={setPage}/>}></Route>
             <Route path="/signup" element={<Nav setPage={setPage}/>}></Route>
+            <Route path="/home" element={<Nav setPage={setPage}/>}></Route>
           </Routes>
         </header>
         <main className="main container-fluid">
-        {/* {
-          isLoggedIn ? <Home/> : <SignUp/>
-        } */}
-        {/* {
-          loginPage === 0 ? <Login loginUser={loginUser}/> : <SignUp handleNewUserSignUp={handleNewUserSignUp} setLoginPage={setLoginPage}/>
-        } */}
-        {/* {page === 0 ? <Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/> : <></> } */}
-        {/* {page === 1 ? 
-        <>
-          <Add handleCreate={handleCreate} setPage={setPage}/> 
-        </>
-        :
-        <></> } */}
-        {/* Route for /login
-          Place link inside here for route to /signup
-        Route for /home *protected view* */}
           <Routes>
-            <Route path="/login" element={<Login axios={axios} loginRoute={loginRoute}/>}></Route>
-            <Route path="/signup" element={<SignUp axios={axios} signUpRoute={signUpRoute}/>}></Route>
+            <Route path="/login" element={<Login axios={axios} loginRoute={loginRoute}/>} />
+            <Route path="/signup" element={<SignUp axios={axios} signUpRoute={signUpRoute}/>} />
             <Route path="/home" element={<ProtectedRoute />}>
               <Route index element={<Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate} />} />
             </Route>
-            {/* <ProtectedRoute path="/home" element={<Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/>}/> */}
           </Routes>
         </main>
         <Routes>
           <Route path="/login" element={<Footer/>}></Route>
           <Route path="/signup" element={<Footer/>}></Route>
+          <Route path="/home" element={<Footer/>}></Route>
         </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    </>
   )
 }
 

@@ -1,24 +1,16 @@
 import React, { useContext } from 'react';
-import { Route, Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from './AuthContext';
+import { Navigate, Outlet } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-    const { isAuthenticated, loading } = useAuth();
+    const { isAuthenticated, loading } = useContext(AuthContext);
+
+    console.log('ProtectedRoute:', { isAuthenticated, loading });
 
     if (loading) {
         return <div>loading...</div>;
     }
 
-    // return (
-    //     <Route
-    //     {...rest}
-    //     render={(props) => isAuthenticated ? 
-    //         (<Component key={props.location.key} {...props} />) 
-    //         : 
-    //         redirect("/login")
-    //     }
-    //     />
-    // )
     return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 }
 
