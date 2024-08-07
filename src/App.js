@@ -84,7 +84,7 @@ const App = () => {
             <Route path="/login" element={<Login axios={axios} loginRoute={loginRoute}/>} />
             <Route path="/signup" element={<SignUp axios={axios} signUpRoute={signUpRoute}/>} />
             <Route path="/home" element={<ProtectedRoute />}>
-              <Route index element={<Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate} />} />
+              <Route index element={<Home setPage={setPage} restaurants={restaurants} handleDelete={handleDelete} handleUpdate={handleUpdate}/>} />
             </Route>
           </Routes>
         </main>

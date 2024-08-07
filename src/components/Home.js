@@ -1,9 +1,12 @@
 import {useState} from 'react'
 import Restaurant from "./Restaurant"
 import EachRestaurant from "./EachRestaurant"
+import {useNavigate} from 'react-router-dom'
+import axiosInstance from '../SignUp_Login/axios'
 
 const Home = (props) => {
     const [restPage, setRestPage] = useState(0)
+    const navigate = useNavigate()
 
     const deleteRestaurant = (restaurant) => {
         props.handleDelete(restaurant)
@@ -11,6 +14,18 @@ const Home = (props) => {
 
     const showRest = (id) => {
         setRestPage(id)
+    }
+    
+    const logoutHandler = async () => {
+        try {
+            const response = await axiosInstance.post('/logout/');
+            if (response.status===200) {
+                console.log(response);
+                navigate('/login');
+            }
+        } catch (error) {
+            console.error('Logout failed', error);
+        }
     }
 
     return(
@@ -38,6 +53,7 @@ const Home = (props) => {
                     </div>
                     )
                 })}
+                <button onClick={() => logoutHandler()}>Logout</button>
             </div>
         :
         <></>
